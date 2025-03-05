@@ -13,6 +13,15 @@ public class ShopRepository {
     }
 
     public void add(Product product) {
+
+        // Проверка, существует ли в массиве элемент с таким же ID
+        Product examID = findById(product.getId());
+        if (examID != null) {
+            throw new AlreadyExistsException(
+                    "Element with id: " + product.getId() + " already exists"
+            );
+        }
+
         products = addToArray(products, product);
     }
 
