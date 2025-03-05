@@ -17,9 +17,7 @@ public class ShopRepository {
         // Проверка, существует ли в массиве элемент с таким же ID
         Product examID = findById(product.getId());
         if (examID != null) {
-            throw new AlreadyExistsException(
-                    "Element with id: " + product.getId() + " already exists"
-            );
+            throw new AlreadyExistsException("Element with id: " + product.getId() + " already exists");
         }
 
         products = addToArray(products, product);
@@ -35,9 +33,7 @@ public class ShopRepository {
         // Проверка, есть ли элемент с данным ID в массиве
         Product examID = findById(id);
         if (examID == null) {
-            throw new NotFoundException(
-                    "Element with id: " + id + " not found"
-            );
+            throw new NotFoundException("Element with id: " + id + " not found");
         }
 
         int copyToIndex = 0;
