@@ -23,6 +23,7 @@ public class ShopRepository {
     public void remove(int id) {
         Product[] tmp = new Product[products.length - 1];
 
+        // Проверка, есть ли элемент с данным ID в массиве
         Product examID = findById(id);
         if (examID == null) {
             throw new NotFoundException(
@@ -40,6 +41,7 @@ public class ShopRepository {
         products = tmp;
     }
 
+    // Поиск элемента в массиве по ID
     public Product findById(int id) {
         for (Product product : products) {
             if (product.id == id) {
